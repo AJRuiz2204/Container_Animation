@@ -1,0 +1,109 @@
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      :root {
+        --orange-base: #f24141;
+        --background-dark: #1b2735;
+        --white: #ffffff;
+      }
+
+      body {
+        background-color: #f0f0f0;
+      }
+
+      .elements {
+        position: relative;
+        width: 60%;
+        margin: 50px auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+      }
+
+      .element {
+        width: 150px;
+        height: 150px;
+        background-color: var(--orange-base);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 10px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+      }
+
+      .element:hover {
+        transform: scale(1.05);
+      }
+
+      .banner {
+        position: absolute;
+        background: var(--background-dark);
+        z-index: 999;
+        border-radius: 10px;
+        animation: expandBanner 0.6s ease-in-out forwards;
+        overflow: hidden;
+        color: var(--white);
+      }
+
+      .banner .content {
+        padding: 20px;
+        opacity: 0;
+        animation: fadeIn 0.6s ease-in-out forwards;
+        animation-delay: 0.6s;
+      }
+
+      .banner .content h3 {
+        margin-bottom: 10px;
+        font-size: 24px;
+      }
+
+      .banner .content p {
+        font-size: 16px;
+        line-height: 1.5;
+      }
+
+      .banner .close-btn {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: transparent;
+        border: none;
+        color: var(--white);
+        font-size: 24px;
+        cursor: pointer;
+      }
+
+      @keyframes expandBanner {
+        from {
+          width: var(--initial-width);
+          height: var(--initial-height);
+          top: var(--initial-top);
+          left: var(--initial-left);
+        }
+        to {
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
